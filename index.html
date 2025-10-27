@@ -32,7 +32,7 @@
         .headline-item { padding: 18px 12px; border-bottom: 1px solid #e9ebee; cursor: pointer; transition: background-color 0.2s; }
         .headline-item:last-child { border-bottom: none; }
         .headline-item:hover { background-color: rgba(232, 247, 247, 0.5); }
-        .headline-item a { text-decoration: none; color: #2c3e50; font-size: 18px; font-weight: 500; line-height: 1.5; }
+        .headline-item a { text-decoration: none; color: #2c3e50; font-size: 18px; font-weight: 500; line-height: 1.5; pointer-events: none; /* 防止链接默认行为 */ }
         .headline-meta { font-size: 13px; color: #606770; margin-top: 8px; }
         .headline-meta .source { font-weight: bold; color: #5dade2; }
         .headline-meta .source.campus { color: #48c9b0; }
@@ -233,7 +233,7 @@
         { headline: "史上最懒小偷，入室盗窃后因沙发太舒服睡着，被主人叫醒。", story: "小松鼠入室盗窃，因为太累在主人彬彬有礼家的沙发上睡着了，第二天被彬彬有礼叫醒，还给他做了一顿早餐才报警。", comments: [ { character: "白滨亚岚", text: "看他太可怜了，至少让他吃饱再上路嘛。" }, { character: "小森隼", text: "（在派出所）……那个，早餐很好吃，谢谢……" }, { character: "佐野玲于", text: "你们两个……锁死吧。" } ] },
         { headline: "男子沉迷占卜，竟用塔罗牌决定今天穿左脚还是右脚的袜子。", story: "作为一天每天起床后都要用塔罗牌占卜，决定今天的行动，包括先迈哪只脚，喝水用哪个杯子。", comments: [ { character: "中务裕太", text: "这是遵循宇宙的指引，你们不懂。" }, { character: "片寄凉太", text: "……只要不影响排练就行。" }, { character: "数原龙友", text: "那占卜一下今晚吃什么？" } ] },
         { headline: "为逃避罚单，男子声称自己的车是“来自未来的交通工具，不受现代法律约束”。", story: "作为一天因违章停车被贴罚单，他向交警解释，他的车其实是一个伪装成汽车的时间机器。", comments: [ { character: "中务裕太", text: "我说的都是实话。" }, { character: "佐野玲于", text: "所以罚单交了吗？" }, { character: "中务裕太", text: "……交了。" } ] },
-        { headline: "广场舞大妈遇对手，两男子为抢地盘竟当场斗舞，舞姿感人。", story: "三言两语和彬彬有礼为了争夺广场中心的位置，与一群大妈展开了激烈的斗舞，最后因体力不支败下阵来。", comments: [ { character: "白滨亚岚", text: "大妈们太强了，我们虽败犹荣！" }, { character: "数原龙友", text: "下次……下次我们一定能赢！" }, { character: "小森隼", text: "我也想加入！看起来好热闹！" } ] },
+        { headline: "广场舞大妈遇对手，两男子为抢地盘竟当场斗舞，舞姿感人。", story: "三言两语和彬彬有礼为了争夺广场中心的位置，与一群大妈展开了激烈的斗舞，最后因体力不支败下陣来。", comments: [ { character: "白滨亚岚", text: "大妈们太强了，我们虽败犹荣！" }, { character: "数原龙友", text: "下次……下次我们一定能赢！" }, { character: "小森隼", text: "我也想加入！看起来好热闹！" } ] },
         { headline: "男子花重金购买“好运喷雾”，使用后出门踩到狗屎，卖家称“帮你躲过车祸”。", story: "作业淋雨向小松鼠推销“幸运喷雾”，小松鼠使用后出门踩到狗屎，作业淋雨解释称：“这是帮你躲过了一场车祸，踩狗屎是代价。”", comments: [ { character: "小森隼", text: "……好像有点道理？" }, { character: "片寄凉太", text: "Hayato你清醒一点！" }, { character: "作业领域", text: "看吧，福祸相依，古人诚不我欺。" } ] },
         { headline: "“行为艺术家”将自己涂成绿色，在公园扮演一棵树，结果被狗当成消防栓。", story: "作为一天为了体验“万物合一”，将自己涂成绿色在公园扮演树，结果被路过的狗尿了一身。", comments: [ { character: "中务裕太", text: "我感受到了……自然的洗礼。" }, { character: "数原龙友", text: "（爆笑）" }, { character: "白滨亚岚", text: "Yuta，你还好吗？需要湿巾吗？" } ] },
         { headline: "男子因不想上班，竟报警称“公司电脑集体密谋造反”。", story: "彬彬有礼为了请假，打电话给老板说公司所有电脑都活了过来，正在策划一场推翻人类的革命。", comments: [ { character: "白滨亚岚", text: "这是很有可能的！你们没看过《终结者》吗！" }, { character: "佐野玲于", text: "……队长，你是不是该去看看医生了？" }, { character: "片寄凉太", text: "他只是想多睡一会儿。" } ] },
@@ -293,20 +293,27 @@
         { headline: "宿舍熄灯后，一男子竟用手电筒表演“手影戏”，内容是“外星人入侵地球”。", story: "宿舍熄灯后，作为一天用手电筒在墙上给室友们表演手影戏，故事内容是“天狼星舰队如何占领地球”，直到被宿管发现。", comments: [ { character: "中务裕太", text: "我只是在进行预演。" }, { character: "三言两语", text: "……还挺好看的。" }, { character: "宿管", text: "……中务同学，明天来我办公室一趟。" } ] }
     ];
 
-    // --- DOM 元素获取与函数定义 (与上一版完全相同) ---
+    // --- DOM 元素获取与函数定义 ---
     const selectionContainer = document.getElementById('selection-container');
     const newsContainer = document.getElementById('news-container');
     const socialBtn = document.getElementById('social-btn');
     const campusBtn = document.getElementById('campus-btn');
+    const chatBtn = document.getElementById('chat-btn');
+    const fortuneBtn = document.getElementById('fortune-btn');
     const backBtn = document.getElementById('back-btn');
     const headlineList = document.getElementById('headline-list');
     const newsCategoryTitle = document.getElementById('news-category-title');
-    const modal = document.getElementById('news-modal');
-    const closeModalBtn = document.getElementById('close-modal-btn');
+    // 模态框
+    const contentModal = document.getElementById('content-modal');
+    const chatModal = document.getElementById('chat-modal');
+    const eventModal = document.getElementById('special-event-modal');
+    // 内容填充区
     const modalHeadline = document.getElementById('modal-headline');
     const modalBody = document.getElementById('modal-body');
+    const commentsContainer = document.getElementById('modal-comments-container');
+    const chatWindow = document.getElementById('chat-window');
 
-    function showNews(category, categoryName, categoryClass) {
+    function showNewsList(category, categoryName, categoryClass) {
         selectionContainer.style.display = 'none';
         newsContainer.style.display = 'block';
         newsCategoryTitle.textContent = categoryName;
@@ -318,27 +325,49 @@
             listItem.className = 'headline-item';
             const randomMinutes = Math.floor(Math.random() * 59);
             const fakeTime = `${randomMinutes}分钟前`;
-            listItem.innerHTML = `
-                <a>${news.headline}</a>
-                <div class="headline-meta">
-                    <span class="source ${categoryClass}">Gene新闻</span> &bull; <span>${fakeTime}</span>
-                </div>
-            `;
-            listItem.addEventListener('click', () => {
-                showModal(news.headline, news.story);
-            });
+            listItem.innerHTML = `<a>${news.headline}</a><div class="headline-meta"><span class="source ${categoryClass}">Gene新闻</span> &bull; <span>${fakeTime}</span></div>`;
+            listItem.addEventListener('click', () => showContentModal(news.headline, news.story, news.comments));
             headlineList.appendChild(listItem);
         });
     }
 
-    function showModal(headline, story) {
-        modalHeadline.textContent = headline;
-        modalBody.textContent = story;
-        modal.style.display = 'block';
+    function showFortune() {
+        const randomFortune = fortunes[Math.floor(Math.random() * fortunes.length)];
+        showContentModal(`今日幸运伙伴：${randomFortune.character}`, randomFortune.fortune);
     }
 
-    function hideModal() {
-        modal.style.display = 'none';
+    function showChatLog() {
+        const randomChat = chatLogs[Math.floor(Math.random() * chatLogs.length)];
+        document.getElementById('chat-title').textContent = randomChat.title;
+        chatWindow.innerHTML = '';
+        randomChat.messages.forEach(msg => {
+            const bubble = document.createElement('div');
+            bubble.className = 'chat-bubble other';
+            bubble.innerHTML = `<div class="chat-sender">${msg.character}</div><div>${msg.text}</div>`;
+            chatWindow.appendChild(bubble);
+        });
+        chatModal.style.display = 'block';
+    }
+
+    function showContentModal(headline, story, comments = []) {
+        modalHeadline.textContent = headline;
+        modalBody.textContent = story;
+        commentsContainer.innerHTML = ''; // 清空评论区
+        if (comments && comments.length > 0) {
+            let commentsHTML = '<h3>神吐槽</h3>';
+            comments.forEach(comment => {
+                commentsHTML += `<p class="comment-item"><strong>${comment.character}:</strong> ${comment.text}</p>`;
+            });
+            commentsContainer.innerHTML = commentsHTML;
+        }
+        contentModal.style.display = 'block';
+    }
+    
+    // 【修复】通用关闭模态框的函数
+    function hideModal(modalElement) {
+        if (modalElement) {
+            modalElement.style.display = 'none';
+        }
     }
 
     function showSelection() {
@@ -346,16 +375,53 @@
         selectionContainer.style.display = 'block';
     }
 
-    socialBtn.addEventListener('click', () => showNews(socialNews, '社会新闻', 'social'));
-    campusBtn.addEventListener('click', () => showNews(campusNews, 'Gene高新闻', 'campus'));
-    backBtn.addEventListener('click', showSelection);
-    closeModalBtn.addEventListener('click', hideModal);
-    window.addEventListener('click', (event) => {
-        if (event.target == modal) {
-            hideModal();
-        }
-    });
-    </script>
+    function checkSpecialDates() {
+        const today = new Date();
+        const month = today.getMonth() + 1;
+        const day = today.getDate();
+        const todayStr = `${today.getFullYear()}-${month}-${day}`;
+        const event = specialDates.find(d => d.month === month && d.day === day);
 
+        if (event && localStorage.getItem('eventShown') !== todayStr) {
+            document.getElementById('event-icon').textContent = event.icon;
+            const titleElement = document.getElementById('event-title');
+            const messageElement = document.getElementById('event-message');
+            
+            titleElement.textContent = `特别提醒：今天是${event.character}的生日！`;
+            if (event.character === "所有人") {
+                 titleElement.textContent = `特别提醒：圣诞快乐！`;
+            }
+            messageElement.textContent = event.message;
+            eventModal.style.display = 'block';
+            localStorage.setItem('eventShown', todayStr);
+        }
+    }
+
+    // --- 【修复】事件监听 ---
+    socialBtn.addEventListener('click', () => showNewsList(socialNews, '社会新闻', 'social'));
+    campusBtn.addEventListener('click', () => showNewsList(campusNews, 'Gene高新闻', 'campus'));
+    chatBtn.addEventListener('click', showChatLog);
+    fortuneBtn.addEventListener('click', showFortune);
+    backBtn.addEventListener('click', showSelection);
+    
+    // 【修复】为所有模态框的关闭按钮和外部区域添加关闭事件
+    document.querySelectorAll('.modal').forEach(modal => {
+        // 点击关闭按钮
+        const closeButton = modal.querySelector('.close-button');
+        if (closeButton) {
+            closeButton.addEventListener('click', () => hideModal(modal));
+        }
+        // 点击外部区域
+        modal.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                hideModal(modal);
+            }
+        });
+    });
+
+    // 页面加载时检查特殊日期
+    document.addEventListener('DOMContentLoaded', checkSpecialDates);
+
+    </script>
 </body>
 </html>
